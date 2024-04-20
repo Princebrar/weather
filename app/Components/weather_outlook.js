@@ -8,10 +8,11 @@ export default function WeatherOutlook({weather, isFetching}) {
     return (
         <div className="flex flex-col gap-4 items-center w-full h-full border-r-2 border-gray-200 border-solid px-5">
         <h1 className=" text-3xl font-semibold">Weather Outlook</h1>
-          {isFetching && <p className="flex flex-col items-center justify-center h-full text-xl font-medium animate-ping">Loading...</p>}
+          {isFetching ? <p className="flex flex-col items-center justify-center h-full text-xl font-medium animate-ping">Loading...</p> :
+          <>
           {weather && 
-          <div className="flex flex-row h-full w-full rounded-3xl shadow-xl overflow-hidden mb-3 border-2 border-solid border-gray-400">
-                        <GrPrevious className={` relative h-full w-11 duration-150 ease-in-out hover:bg-gray-100 z-20 ${view == "today" ? "opacity-0" : "opacity-100" } z-0`} onClick={()=>{setView("today")}}/>
+          <div className="flex flex-row h-full backdrop-blur-sm backdrop-brightness-110 w-full rounded-3xl shadow-xl overflow-hidden mb-3 border-2 border-solid border-gray-400">
+                        <GrPrevious className={` relative h-full w-11 duration-150 ease-in-out hover:scale-150 z-20 ${view == "today" ? "opacity-0" : "opacity-100" } z-0`} onClick={()=>{setView("today")}}/>
             <div className={`flex flex-row duration-300 ease-in-out h-full w-full ${view == "today" ? "" : "hidden"}`}>
             <div className="absolute flex flex-row text-center w-5/12 h-10 items-center">
             <span className=" w-full font-light text-xl text-center">Today</span>
@@ -56,9 +57,11 @@ export default function WeatherOutlook({weather, isFetching}) {
             </div>
             </div>
             </div>
-            <GrNext className={` relative h-full w-11 duration-150 ease-in-out hover:bg-gray-100 z-20 ${view != "today" ? "opacity-0" : "opacity-100" } z-0`} onClick={()=>{setView("tomorrow")}}/>
+            <GrNext className={` relative h-full w-11 duration-150 ease-in-out hover:scale-150 z-40 ${view != "today" ? "opacity-0" : "opacity-100" } z-0`} onClick={()=>{setView("tomorrow")}}/>
           </div>
           }
+                    </>
+        }
         </div>
     );
   }
