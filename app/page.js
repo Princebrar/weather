@@ -51,7 +51,7 @@ export default function Home() {
   }
 }
   return (
-    <main className={` h-fit w-screen bg-gradient-to-tr ${weather !=null &&` ${ weather.current.condition.text== "Sunny" || weather.current.condition.text== "Clear" ? " from-yellow-500 to-yellow-300": " from-blue-500 to-blue-200" }`} text-black`}>
+    <main className={` h-fit w-screen bg-gradient-to-tr ${weather !=null &&` ${ weather.current.condition.text== "Sunny" || weather.current.condition.text== "Clear" ? " from-[#00DEFF] via-[#0087BD] to-[#0087BD] text-blue-100": " from-blue-500 to-blue-200 text-blue-900" }`}`}>
       <Navbar />
       <div className="flex flex-col items-center justify-center w-screen h-fit p-4 pt-24 mb-5 ">
       <h1 className="text-5xl font-extrabold">Weather App</h1>
